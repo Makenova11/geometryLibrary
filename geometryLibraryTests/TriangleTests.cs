@@ -11,6 +11,9 @@ namespace geometryLibrary.Tests
     [TestClass()]
     public class TriangleTests
     {
+        /// <summary>
+        /// Вычисление площади треугольника по трём сторонам
+        /// </summary>
         [TestMethod()]
         public void SquareTest()
         {
