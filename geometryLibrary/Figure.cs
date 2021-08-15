@@ -22,9 +22,9 @@ namespace geometryLibrary
         /// <returns></returns>
         public (double circleSquare, double squareArea, double triangleSquare) NoTypeSquare(double firstSide)
         {
-            double circleSquare = Math.PI * Math.Pow(firstSide, 2);
-            double squareArea = Math.Pow(firstSide, 2);
-            double triangleSquare = (Math.Pow(firstSide, 2) * Math.Sqrt(3)) / 4;
+            double circleSquare = Math.Round(Math.PI * Math.Pow(firstSide, 2), 3);
+            double squareArea = Math.Round(Math.Pow(firstSide, 2), 3);
+            double triangleSquare = Math.Round((Math.Pow(firstSide, 2) * Math.Sqrt(3)) / 4, 3);
 
             return (circleSquare, squareArea, triangleSquare);
         }
@@ -38,8 +38,8 @@ namespace geometryLibrary
         /// <returns></returns>
         public (double rectangleSquare, double ellipseSquare) NoTypeSquare(double firstSide, double secondSide)
         {
-            double rectangleSquare = firstSide * secondSide;
-            double ellipseSquare = Math.PI * firstSide * secondSide;
+            double rectangleSquare = Math.Round(firstSide * secondSide, 3);
+            double ellipseSquare = Math.Round(Math.PI * firstSide * secondSide, 3);
 
             return (rectangleSquare, ellipseSquare);
         }
@@ -58,13 +58,13 @@ namespace geometryLibrary
             {
                 if (Straight(firstSide, secondSide, thirdSide, out double cathetus1, out double cathetus2))
                 {
-                    return cathetus1 * cathetus2 / 2; // находим площадь как полупроизведение катетов
+                    return Math.Round(cathetus1 * cathetus2 / 2, 3); // находим площадь как полупроизведение катетов
                 }
                 else
                 {
                     // иначе находим площадь по формуле Герона
                     double p = (firstSide + secondSide + thirdSide) / 2;
-                    return Math.Sqrt(p * (p - firstSide) * (p - secondSide) * (p - thirdSide));
+                    return Math.Round(Math.Sqrt(p * (p - firstSide) * (p - secondSide) * (p - thirdSide)), 3);
                 }
             }
             return 0; //значит фигура не треугольник

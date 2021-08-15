@@ -20,13 +20,14 @@ namespace geometryLibrary
             {
                 if (Straight(this.FirstSide, this.SecondSide, this.ThirdSide, out double cathetus1, out double cathetus2))
                 {
-                    return cathetus1 * cathetus2 / 2;// находим площадь как полупроизведение катетов
+                    return Math.Round(cathetus1 * cathetus2 / 2, 3);// находим площадь как полупроизведение катетов
                 }
                 else
                 {
                     // иначе находим площадь по формуле Герона
                     double p = (this.FirstSide + this.SecondSide + this.ThirdSide) / 2;
-                    return Math.Sqrt(p * (p - this.FirstSide) * (p - this.SecondSide) * (p - this.ThirdSide));
+                    return Math.Round(
+                        Math.Sqrt(p * (p - this.FirstSide) * (p - this.SecondSide) * (p - this.ThirdSide)), 3);
                 }
             }
             else return 0; //фигура не треугольник

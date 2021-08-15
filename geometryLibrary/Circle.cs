@@ -16,7 +16,7 @@ namespace geometryLibrary
 
         public double Square()
         {
-            return Math.PI * Math.Pow(this.Radius, 2);
+            return Math.Round(Math.PI * Math.Pow(this.Radius, 2), 3);
 
         }
     }
